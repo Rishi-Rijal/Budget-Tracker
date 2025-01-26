@@ -61,5 +61,3 @@ person.change_email("new.email@example.com")
 <h2>Contributing</h2>
 <p>If you'd like to contribute to the project, please fork the repository, create a branch, and submit a pull request. All contributions are welcome!</p>
 
-<h2>License</h2>
-<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
