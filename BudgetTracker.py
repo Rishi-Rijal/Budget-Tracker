@@ -65,9 +65,11 @@ class Person:
 
 
 class BudgetAccount:
-    def __init__(self, acc_name):
+    def __init__(self, acc_name, owner: Person):
         self._acc_name = acc_name
         self._transactions = []
+        self._owner = owner
+        owner.add_budget_account(self)
         print("Budget Account Created Successfully")
     
     # method to add transaction to the account:
@@ -85,16 +87,37 @@ class BudgetAccount:
     
     # method to get all transactions
     def get_transactions(self):
+        if not self._transactions:
+            print("No transactions yet")
+        else:
+            for transaction in self._transactions:
+                print(transaction)
+    
+    # method to get the balance of the account
+    def get_balance(self):
+        balance = 0
         for transaction in self._transactions:
-            print(transaction)
+            if transaction._trans_type == "income":
+                balance += transaction._amount
+            else:
+                balance -= transaction._amount
+        return balance
 
     
 
 
-class Transction():
-    def __init__(self, amount, trans_type, description):
+class Transaction():
+    def __init__(self, amount: int, trans_type: str, description:str, account: BudgetAccount):
+        if trans_type not in ["income", "expense"]:
+            print("Invalid transaction type. Must be 'income' or 'expense'.")
+            return
         self._amount = amount
         self._trans_type = trans_type
         self._description = description
+        self._account = account
+        account.add_transaction(self)
         print("Transaction created successfully")
+
+    def get_info(self):
+        print(f"Amount: {self._amount} Type: {self._trans_type} Description: {self._description}")
 
