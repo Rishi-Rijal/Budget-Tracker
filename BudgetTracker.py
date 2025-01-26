@@ -88,3 +88,12 @@ class BudgetAccount:
         for transaction in self._transactions:
             print(transaction)
 
+
+class Transction():
+    def __init__(self, amount, type, description):
+        self._amount = amount
+        self._type = type
+        self._description = description
+        print("Transaction created successfully")
+
+        
