@@ -15,11 +15,16 @@ class Person:
     #creating a new object of person class with name and email
     def __init__(self, name, email):
         if not self.is_valid_email(email):
-            raise ValueError("Cannot create Person object: Invalid email address.")
+            print("Enter a Valid email address")
+            return
         self._name = name
         self._email = email
         # initializing budget accounts to empty list to add accounts
         self._budget_accounts = []
+        print("Object Created Successfully")
+    
+    def get_info(self):
+        print(f"name: {self._name} Email: {self._email}")
 
     # method to change the person name
     def change_name(self, new_name):
@@ -51,7 +56,7 @@ class Person:
     # remove budget account
     def remove_budget_account(self, budget_account):
         if budget_account not in self._budget_accounts:
-            print(f"There is not budget catagory with the name {budget_account}")
+            print(f"There is not budget Account with the name {budget_account}")
         else:
             self._budget_accounts.remove(budget_account)
             print("Removed account Successfully")
