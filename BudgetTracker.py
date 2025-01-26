@@ -69,3 +69,22 @@ class BudgetAccount:
         self._acc_name = acc_name
         self._transactions = []
         print("Budget Account Created Successfully")
+    
+    # method to add transaction to the account:
+    def add_transaction(self, transaction):
+        self._transactions.append(transaction)
+        print("Transaction added successfully")
+    
+    # method to remove transaction from the account
+    def remove_transaction(self, transaction):
+        if transaction not in self._transactions:
+            print("Transaction does not exist")
+        else:
+            self._transactions.remove(transaction)
+            print("Transaction removed successfully")
+    
+    # method to get all transactions
+    def get_transactions(self):
+        for transaction in self._transactions:
+            print(transaction)
+
