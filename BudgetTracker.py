@@ -63,3 +63,9 @@ class Person:
 
 
 
+
+class BudgetAccount:
+    def __init__(self, acc_name):
+        self._acc_name = acc_name
+        self._transactions = []
+        print("Budget Account Created Successfully")
